@@ -20,7 +20,7 @@ on:
 env:
   GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
   ISSUE_LABEL:   ${{ inputs.inputlabel || 'template' }}
-  ISSUE_REPO:    'ttc-cases/onboard'
+  ISSUE_REPO:    'ttc-cases/tech-that-chat'
   
 permissions:
   contents: write
