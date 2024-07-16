@@ -13,7 +13,7 @@ The purpose of the exercise is two-fold:
 
 We assume you got here from an invite to a GitHub Classroom exercise[^notghclassroom]. 
 
-[^notghclassroom]: If you _didn't_ get here from a GitHub Classroom assignment you are truely inventious and curious. But to participate you must enter from the [GitHub Classroom assignment](https://classroom.github.com/a/rcXtBAsy) - Go there and accept the assigment — and you will end up here again, only in a different setting
+[^notghclassroom]: If you _didn't_ get here from a GitHub Classroom assignment you are truely inventious and curious. But to participate you must enter from the [GitHub Classroom assignment](https://classroom.github.com/a/T_bFyUiF) - Go there and accept the assigment — and you will end up here again, only in a different setting
 
 During this exercise you will have your own GitHub repository. It's private, so only you and we can see your replies and reflections. You will _not_ be asked to write code or build anything. In this exercise we only use the GitHub Issues in your repo to get your replies an reflections. And if you choose you can even engage with us in the process — more on how to do that later.
 
