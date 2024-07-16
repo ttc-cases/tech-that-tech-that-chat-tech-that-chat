@@ -134,7 +134,7 @@ body:
         - label: I have worked in a sales position (any)   
         - label: I have had some part of my compensation as a bonus
     validations:
-      required: true
+      required: false
 
   - type: textarea
     id: in-your-own-words
