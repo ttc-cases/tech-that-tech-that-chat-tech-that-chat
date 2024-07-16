@@ -1,0 +1,159 @@
+name: A bit about you
+description: A questionnaire about you - use your full name as the title.
+body:
+  - type: dropdown
+    id: notification
+    attributes:
+      label: Notifications in GitHub setup
+      description: |
+        We assume that you have setup [notifications on your GitHub account](https://github.com/notifications) in such a a way, that we can communicate with you through _mentions_ and _assignments_ on issues - is that a fair assumption?
+      options:
+        - Yep - that's right, hit me!
+        - No - I don't know how to set that up
+      default: 0
+    validations:
+      required: true
+
+  - type: dropdown
+    id: markdown
+    attributes:
+      label: Confident in MarkDown
+      description: |
+        We assume that you are familiar with [GitHub flavoured MarkDown](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax) to an extend that you are confident to do this exercise and document your progress and replies here in GitHub Issues. Is that a fair assumption?
+      options:
+        - Yep - that's right!
+        - No - Wait ...eeeh! MarkDown?
+      default: 0
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: education
+    attributes:
+      label: Relevant education
+      description: Please indicate your education level or if you're currently studing
+      options:
+        - I have a relevant master's degree
+        - I have a relevant bachelor degree
+        - I have a relevant AP degree
+        - I'm currently studying a relevant degree
+        - I don't have a degree - I'm autodidact!   
+      default: 0
+    validations:
+      required: true
+      
+  - type: markdown
+    attributes:
+      value: |
+        Please give a bit of background about yourself, so we can have a discussion that takes off-set in where your are professionally right now.
+        
+        Go through this series of checkboxes below and check everyone where you have have acquired skill above the level of _novice_ implying that you would categorize yourself as either **_advanced beginner_**, **_compentent_**, **_proficient_** or **_expert_**[^dreyfus]
+        
+        [^dreyfus]: The levels are refering to the [Dreyfus model of skill acqusition](https://en.wikipedia.org/wiki/Dreyfus_model_of_skill_acquisition) 
+
+  - type: checkboxes
+    id: os
+    attributes:
+      description: Check all where you are skilled above _novice_ level.
+      label: Which operating systems and OS technologies have you used?
+      options:
+        - label: Windows
+        - label: MacOS
+        - label: Linux / Docker    
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: languages
+    attributes:
+      description: Check all where you are skilled above _novice_ level.
+      label: Which programming languages have you used?
+      options:
+        - label: JavaScript or TypeScript
+        - label: Java or C#
+        - label: Python or Perl
+        - label: Go or Rust or Dart
+        - label: C or C++
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: clouds
+    attributes:
+      description: Check all where you are skilled above _novice_ level.
+      label: Which clouds, platforms or frameworks have you used?
+      options:
+        - label: AWS
+        - label: GCP
+        - label: Azure
+        - label: Kubernetes
+        - label: Firebase or Supabase
+        - label: Flutter or React Native
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: testtools
+    attributes:
+      description: Check all where you are skilled above _novice_ level.
+      label: Which test technologies, tools and apporoaches have you automated?
+      options:
+        - label: Unit tests
+        - label: Static Code Analysis
+        - label: Integration tests
+        - label: End-to-end tests / Functional tests
+        - label: Performance/Load tests
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: devops
+    attributes:
+      description: Check all where you are skilled above _novice_ level.
+      label: Which DevOps and DevX technologies, tools and apporoaches have you used?
+      options:
+        - label: Declarative pipelines (GitHub Actions, Circle CI, etc.)
+        - label: Devcontainers
+        - label: Git, GitHub, GitLab...
+        - label: Ansible or Chef
+        - label: Docker
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: consultancy
+    attributes:
+      label: Do you have prior experience in a consultancy
+      description: Please check all that you have experience at some point in life
+      options:
+        - label: I have worked as a self-employed freelancer
+        - label: I have worked in a tech consultancy bureau
+        - label: I have worked in a management consultancy bureau
+        - label: I have been 1<sup>st</sup> point responsible for deliveries and invoicing towards a client
+        - label: I have written offers or tendes to clients - that was won
+        - label: I have worked in a sales position (any)   
+        - label: I have had some part of my compensation as a bonus
+    validations:
+      required: true
+
+  - type: textarea
+    id: in-your-own-words
+    attributes:
+      label: In your own words...
+      description: |
+        Use a few sentenses to describe yourself from a perspective of _DevOps_ and _Software Development_ list some
+        of the additional skills that you pocess at a level above _novice_ and that _you_ find would contribute into 
+        a full-stack development team like .tech that
+      placeholder: |
+        I possess the following full-stack relevant skills...
+    validations:
+      required: true
+
+  - type: markdown
+    attributes:
+      value: |
+        🤷‍♂️ Maybe you had more information you wanted to get off your chest?
+        
+        > [!TIP]
+        > When you have submitted this issue, you can go back and find and open it and then chose to _edit_ the description.
+        > It will open up as raw MarkDown - and you can take it in any direction you want - knock yourself out!

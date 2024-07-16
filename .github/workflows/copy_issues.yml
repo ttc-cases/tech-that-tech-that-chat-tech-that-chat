@@ -1,0 +1,56 @@
+name: Copy issues - only run once
+
+on:
+  push:
+    branches:
+      - '**' 
+  issues:
+    types: [opened]
+  workflow_dispatch:
+    inputs:
+      inputlabel:
+        description: 'Label to import'
+        required: false
+        default: 'template'
+        type: choice
+        options:
+        - template
+        - advanced
+
+env:
+  GITHUB_TOKEN:  ${{ secrets.GITHUB_TOKEN }}
+  ISSUE_LABEL:   ${{ inputs.inputlabel || 'template' }}
+  ISSUE_REPO:    'ttc-cases/onboard'
+  
+permissions:
+  contents: write
+  actions:  write   
+  issues:   write   
+
+concurrency:
+  group: "cpissues"
+  cancel-in-progress: false
+
+jobs:
+  cpissues:
+    name: "Copy issues from template"
+    runs-on: ubuntu-latest
+    steps:       
+      - name: "Checkout"
+        uses: actions/checkout@v4
+          
+      - name: "Copying issues over from template repo"
+        run: |
+          gh extension install thetechcollective/gh-cpissues
+          gh cpissues $ISSUE_REPO --label $ISSUE_LABEL
+          echo ::notice title=Copied issues with label \'$ISSUE_LABEL\'::From the public source repository \'$ISSUE_REPO\'
+        
+      - name: "Only run once"
+        run: |
+          if $(gh workflow disable "${{ github.workflow }}" ); then
+            echo ::notice title=Workflow successfully disabled::This workflow is designed to only run once — therefore this run disabled the workflow defined by \'$WORKFLOW_FILE\'.
+          else
+            echo "::warning title=Couldn't disable the workflow::This shouldn't have happened — something is wrong!"
+            gh api -X POST /repos/{owner}/{repo}/actions/runs/${{ github.run_id }}/cancel
+            exit 1
+          fi
